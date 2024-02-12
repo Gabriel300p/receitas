@@ -104,7 +104,7 @@ export default function Home() {
             className="absolute inset-0 bg-black opacity-80"
             onClick={fecharModal}
           ></div>
-          <div className="bg-white max-h-2/3 p-5 rounded-lg shadow-lg max-w-[90%] relative z-10 ">
+          <div className="bg-white max-h-2/3 p-5 rounded-lg shadow-lg w-[90%] relative z-10 ">
             <button
               className="absolute top-4 z-30 right-4 rounded-smring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 disabled:pointer-events-none  dark:ring-offset-zinc-950 dark:focus:ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-400"
               onClick={fecharModal}
