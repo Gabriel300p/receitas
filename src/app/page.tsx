@@ -18,10 +18,28 @@ export default function Home() {
   const [receitaSelecionada, setReceitaSelecionada] = useState<Receita | null>(
     null
   );
+  const [receitasDisponiveis, setReceitasDisponiveis] =
+    useState<Receita[]>(receitas);
 
   const escolherReceitaAleatoria = () => {
-    const indiceAleatorio = Math.floor(Math.random() * receitas.length);
-    setReceitaSelecionada(receitas[indiceAleatorio]);
+    if (receitasDisponiveis.length === 0) {
+      // Se não houver mais receitas disponíveis, reinicie a lista de receitas disponíveis
+      setReceitasDisponiveis(receitas);
+    }
+
+    const indiceAleatorio = Math.floor(
+      Math.random() * receitasDisponiveis.length
+    );
+    const receitaSelecionada = receitasDisponiveis[indiceAleatorio];
+
+    // Remova a receita selecionada da lista de receitas disponíveis
+    const novasReceitasDisponiveis = receitasDisponiveis.filter(
+      (receita) => receita.id !== receitaSelecionada.id
+    );
+    setReceitasDisponiveis(novasReceitasDisponiveis);
+
+    // Defina a receita selecionada
+    setReceitaSelecionada(receitaSelecionada);
   };
 
   const fecharModal = () => {
