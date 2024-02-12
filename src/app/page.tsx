@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <main className="px-3.5 py-5 flex flex-col gap-5 relative h-screen overflow-x-hidden">
+    <main className="px-3.5 py-5 flex flex-col gap-5 h-full overflow-x-hidden">
       <h1 className="text-2xl text-zinc-900 font-bold">Receitas</h1>
       <div className="flex flex-col gap-3">
         {receitas.map((receita) => (
@@ -37,7 +37,7 @@ export default function Home() {
               <img
                 src={receita.imagem}
                 alt={receita.nome}
-                className="w-[70px] h-auto min-h-12 bg-cover rounded-2xl"
+                className="w-[70px] h-auto min-h-12 rounded-2xl bg-cover"
               />
               <div className="flex flex-col gap-0.5">
                 <h2 className="text-lg text-zinc-700 font-semibold truncate">
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className="absolute bottom-0 w-[94%]">
+      <div className="absolute bottom-0 w-[94%] bg-white">
         <div className="pt-6 pb-4 border-t border-zinc-300 ">
           <Button
             size={"lg"}
@@ -74,7 +74,7 @@ export default function Home() {
             className="absolute inset-0 bg-black opacity-80"
             onClick={fecharModal}
           ></div>
-          <div className="bg-white max-h-2/3 p-5 rounded-lg shadow-lg max-w-md relative z-10 ">
+          <div className="bg-white max-h-2/3 p-5 rounded-lg shadow-lg max-w-[90%] relative z-10 ">
             <button
               className="absolute top-4 z-30 right-4 rounded-smring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 disabled:pointer-events-none  dark:ring-offset-zinc-950 dark:focus:ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-400"
               onClick={fecharModal}
