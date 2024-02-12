@@ -58,7 +58,7 @@ const receitas: Receita[] = [
   },
   {
     id: 3,
-    imagem: "/images/noiva-em-fuga.jpg",
+    imagem: "/images/noiva-em-fuga.webp",
     nome: "Cookies de Chocolate",
     midia: "Noiva em Fuga",
     ingredientes: [
@@ -490,7 +490,7 @@ const receitas: Receita[] = [
   {
     id: 22,
     imagem: "/images/cafe-gelado-com-leite-de-amendoas.webp",
-    nome: "Café Gelado com Leite de Amêndoas",
+    nome: "Café Gelado com Leite de Amêndoas Café Gelado com Leite de Amêndoas",
     midia: "A Dama e o Vagabundo",
     ingredientes: [
       "1 xícara de café forte, resfriado",

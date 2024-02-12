@@ -10,6 +10,10 @@ import {
   PiXCircleFill,
 } from "react-icons/pi";
 
+const limitarTexto = (texto: any, limite: any) => {
+  return texto.length > limite ? texto.slice(0, limite) + "..." : texto;
+};
+
 export default function Home() {
   const [receitaSelecionada, setReceitaSelecionada] = useState<Receita | null>(
     null
@@ -24,6 +28,14 @@ export default function Home() {
     setReceitaSelecionada(null);
   };
 
+  const truncateNome = (nome: string, maxLength: number): string => {
+    if (nome.length <= maxLength) {
+      return nome;
+    }
+
+    return `${nome.substring(0, maxLength - 3)}...`;
+  };
+
   return (
     <main className="px-3.5 py-5 flex flex-col gap-5 h-full overflow-x-hidden">
       <h1 className="text-2xl text-zinc-900 font-bold">Receitas</h1>
@@ -31,26 +43,26 @@ export default function Home() {
         {receitas.map((receita) => (
           <div
             key={receita.id}
-            className="border border-zinc-300 rounded-lg p-3 gap-3 flex justify-between items-center w-full"
+            className="border border-zinc-300 rounded-lg p-3 gap-3 flex justify-between items-center"
           >
-            <div className="flex items-center gap-3 flex-grow">
+            <div className="flex items-center gap-3 w-full">
               <img
                 src={receita.imagem}
                 alt={receita.nome}
                 className="w-[70px] h-auto min-h-12 rounded-2xl object-cover"
               />
-              <div className="flex flex-col gap-0.5">
-                <h2 className="text-lg text-zinc-700 font-semibold truncate w-[300px] ">
-                  {receita.nome}
+              <div className="flex flex-col">
+                <h2 className="text-lg font-semibold text-zinc-800">
+                  {truncateNome(receita.nome, 30)}
                 </h2>
-                <p className="text-sm font-regular text-zinc-600">
+                <p className="text-sm font-normal text-zinc-600">
                   {receita.midia}
                 </p>
               </div>
             </div>
             <PiArrowCircleRightFill
               size={32}
-              className="text-yellow-600 cursor-pointer"
+              className="min-w-8 text-yellow-600 cursor-pointer"
               onClick={() => setReceitaSelecionada(receita)}
             />
           </div>
