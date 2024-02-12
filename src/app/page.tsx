@@ -27,20 +27,20 @@ export default function Home() {
   return (
     <main className="px-3.5 py-5 flex flex-col gap-5 h-full overflow-x-hidden">
       <h1 className="text-2xl text-zinc-900 font-bold">Receitas</h1>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 mb-20">
         {receitas.map((receita) => (
           <div
             key={receita.id}
-            className="border border-zinc-300 rounded-lg p-3 gap-3 flex justify-between items-center"
+            className="border border-zinc-300 rounded-lg p-3 gap-3 flex justify-between items-center w-full"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-grow">
               <img
                 src={receita.imagem}
                 alt={receita.nome}
-                className="w-[70px] h-auto min-h-12 rounded-2xl bg-cover"
+                className="w-[70px] h-auto min-h-12 rounded-2xl object-cover"
               />
               <div className="flex flex-col gap-0.5">
-                <h2 className="text-lg text-zinc-700 font-semibold truncate">
+                <h2 className="text-lg text-zinc-700 font-semibold truncate w-[300px] ">
                   {receita.nome}
                 </h2>
                 <p className="text-sm font-regular text-zinc-600">
@@ -56,8 +56,8 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className="absolute bottom-0 w-[94%] bg-white">
-        <div className="pt-6 pb-4 border-t border-zinc-300 ">
+      <div className="fixed bottom-0 w-[97%] bg-white">
+        <div className="pt-6 pb-4 border-t border-zinc-300 mr-4 ">
           <Button
             size={"lg"}
             onClick={escolherReceitaAleatoria}
@@ -89,7 +89,7 @@ export default function Home() {
               <img
                 src={receitaSelecionada.imagem}
                 alt={receitaSelecionada.nome}
-                className="w-full bg-fill bg-center h-52 absolute top-0 left-0  "
+                className="w-full object-cover object-top h-52 absolute top-0 left-0  "
               />
             </div>
             <div className="flex flex-col mb-2 mt-52">
